@@ -8,7 +8,7 @@ import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import FeatureButton from '@/components/FeatureButton';
 
-export default function TabTwoScreen() { 
+export default function HomeScreen() { 
 
 
   return ( 
@@ -24,7 +24,8 @@ export default function TabTwoScreen() {
     
     <FeatureButton
       containerHeight={250}
-      text="Text Reader"
+      text="Text Reader" 
+      icon='document-text-outline'
       color="#F7D63E"
       onPress={() => console.log('Text Reader pressed')}
     />
@@ -40,7 +41,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',  
     padding: 20, 
     backgroundColor: 'black'
-
 
   },  
 
