@@ -2,4 +2,7 @@ python-dotenv
 google-generativeai
 opencv-python
 numpy
-pillow 
+pillow
+ultralytics
+cv2
+mediapipe
