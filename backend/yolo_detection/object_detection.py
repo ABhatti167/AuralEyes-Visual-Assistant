@@ -6,7 +6,7 @@ import math
 
 def detect_objects():
 
-    yolo_model = YOLO("../../../yolov8n.pt")
+    yolo_model = YOLO("yolov8n.pt")
 
     mp_pose = mp.solutions.pose
     mp_drawing = mp.solutions.drawing_utils
