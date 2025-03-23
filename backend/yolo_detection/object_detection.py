@@ -1,9 +1,17 @@
+import os
+
 from ultralytics import YOLO
 import cv2
 import mediapipe as mp
 import time
 import math
+from flask import Flask, request
+from flask_cors import CORS
 
+app = Flask("aural_eyes_app")
+CORS(app)
+
+@app.route("/detect", methods=['POST'])
 def detect_objects():
 
     yolo_model = YOLO("yolov8n.pt")
@@ -156,5 +164,7 @@ def detect_objects():
 
 
 if __name__ == '__main__':
-    detect_objects()
+    port = os.environ.get('PORT', 5000)
+    app.run(host='0.0.0.0', port=port)
+    # detect_objects()
 
