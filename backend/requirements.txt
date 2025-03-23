@@ -6,3 +6,6 @@ pillow
 ultralytics
 cv2
 mediapipe
+asyncio
+aiortc
+av
