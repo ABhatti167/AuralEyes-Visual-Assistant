@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Image, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native'; 
 import { FC } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -13,7 +13,13 @@ const DescriptionPage = () => {
   const { image } = params.image ? JSON.parse(params.image as string) : null;
   const [apiResponse, setApiResponse] = useState<any>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);  
+  
+  useEffect(() => {
+    if (image) {
+      processImage();
+    }
+  }, [image]);
 
   // Function to process the image with the API
   const processImage = async () => {
@@ -63,7 +69,7 @@ const DescriptionPage = () => {
     <View style={styles.container}>
       {/* Top button */}
       <TouchableOpacity style={styles.button} onPress={()=> router.push('/home')}>
-        <Text style={styles.buttonText}>Process Image</Text>
+        <Text style={styles.buttonText}>Back</Text>
       </TouchableOpacity>
       
       {/* Image display */}
@@ -75,7 +81,7 @@ const DescriptionPage = () => {
       
       {/* Second button */}
       <TouchableOpacity style={styles.button} onPress={handleSecondButton}>
-        <Text style={styles.buttonText}>Second Action</Text>
+        <Text style={styles.buttonText}>Repeat Reading</Text>
       </TouchableOpacity>
       
       {/* Loading indicator */}

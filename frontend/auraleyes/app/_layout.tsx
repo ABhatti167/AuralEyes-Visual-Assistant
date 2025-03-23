@@ -7,9 +7,6 @@ import { useEffect } from 'react';
 import 'react-native-reanimated'; 
 
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-import HomeScreen from './home';
-import DescriptionPage from './descriptionPage';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -32,10 +29,14 @@ export default function RootLayout() {
   } 
   
   return (
-    <Stack>
+    <Stack 
+    initialRouteName='home'
+    >
       <Stack.Screen name="home" options={{ headerShown: false }} />
-      <Stack.Screen name="descriptionPage" options={{}} />
-      {/* No need to explicitly include components here */}
+      <Stack.Screen name="descriptionPage" options={{}} /> 
+      <Stack.Screen name="textCam" options={{}} /> 
+      <Stack.Screen name="livefeed" options={{}} />
+      
     </Stack>
   );
 }

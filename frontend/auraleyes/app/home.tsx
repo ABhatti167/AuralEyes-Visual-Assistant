@@ -1,16 +1,12 @@
 import { StyleSheet, Image, Platform, View, SafeAreaView } from 'react-native';
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 import FeatureButton from '@/components/FeatureButton';
+import {  useRouter } from 'expo-router';
+
 
 export default function HomeScreen() { 
 
-
+  const router = useRouter() 
   return ( 
     <SafeAreaView style={styles.wrapper}>
     <View style={styles.mainView}>
@@ -19,7 +15,7 @@ export default function HomeScreen() {
       text="Live Navigation"
       icon="videocam-outline"
       color="#D94148"
-      onPress={() => console.log('Live Navigation pressed')}
+      onPress={() =>  router.push('/livefeed')}
     />
     
     <FeatureButton
@@ -27,7 +23,7 @@ export default function HomeScreen() {
       text="Text Reader" 
       icon='document-text-outline'
       color="#F7D63E"
-      onPress={() => console.log('Text Reader pressed')}
+      onPress={() => router.push('/textCam')}
     />
   </View> 
   </SafeAreaView>
